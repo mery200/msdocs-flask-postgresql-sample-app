@@ -45,10 +45,12 @@ def details(id):
     restaurant = Restaurant.query.where(Restaurant.id == id).first()
     return render_template('details.html', restaurant=restaurant)
 
-@app.route('/delete/<int:id>', methods=['POST'])
+@app.route('/delete/<int:id>', methods=['DELETE'])
+@csrf.exempt
 def delete_record(id):
     record = Restaurant.query.get_or_404(id)
     db.session.delete(record)
+    print('Request for delete received')
     db.session.commit()
     return render_template('index.html', restaurants=restaurants)
 
