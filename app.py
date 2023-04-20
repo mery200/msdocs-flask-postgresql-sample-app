@@ -43,8 +43,7 @@ def index():
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
     restaurant = Restaurant.query.where(Restaurant.id == id).first()
-    reviews = Review.query.where(Review.restaurant == id)
-    return render_template('details.html', restaurant=restaurant, reviews=reviews)
+    return render_template('details.html', restaurant=restaurant)
 
 @app.route('/create', methods=['GET'])
 def create_restaurant():
@@ -56,7 +55,6 @@ def create_restaurant():
 def add_restaurant():
     try:
         name = request.values.get('restaurant_name')
-        street_address = request.values.get('street_address')
         description = request.values.get('description')
     except (KeyError):
         # Redisplay the question voting form.
@@ -66,7 +64,6 @@ def add_restaurant():
     else:
         restaurant = Restaurant()
         restaurant.name = name
-        restaurant.street_address = street_address
         restaurant.description = description
         db.session.add(restaurant)
         db.session.commit()
