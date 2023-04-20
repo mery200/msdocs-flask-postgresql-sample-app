@@ -9,7 +9,7 @@ class Restaurant(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(100))
     street_address = Column(String(50))
-    description = Column(String(2000))
+    description = Column(String(500))
 
     def __str__(self):
         return self.name
