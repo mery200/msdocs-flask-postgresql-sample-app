@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Restaurant Create{% endblock %}
+{% block title %}Create{% endblock %}
 {% block head %}
     {{ super() }}
     <style>
@@ -10,9 +10,9 @@
   </style>
 {% endblock %}
 {% block content %}
-    <h1>Add New Restaurant</h1>
+    <h1>Ajout d'une etape</h1>
 
-    <form method="POST" action="{{ url_for('add_restaurant') }}">
+    <form id="myform" method="POST" action="{{ url_for('add_restaurant') }}">
         <div class="mb-3">
           <label for="restaurant_name" class="form-label">Name</label>
           <input type="text" class="form-control" id="restaurant_name" name="restaurant_name">
@@ -21,8 +21,8 @@
             <label for="description" class="form-label">Description</label>
             <input type="text" class="form-control" id="description" name="description">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="cancel" class="btn btn-primary">Cancel</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="document.getElementById('myForm').reset()">Cancel</button>
     </form>
 {% endblock %}
     
