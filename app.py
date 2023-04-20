@@ -45,6 +45,13 @@ def details(id):
     restaurant = Restaurant.query.where(Restaurant.id == id).first()
     return render_template('details.html', restaurant=restaurant)
 
+@app.route('/delete/<int:id>', methods=['DELETE'])
+def delete_record(id):
+    record = Restaurant.query.where(Restaurant.id == id).first()
+    db.session.delete(record)
+    db.session.commit()
+    return render_template('index.html', restaurants=restaurants)
+
 @app.route('/create', methods=['GET'])
 def create_restaurant():
     print('Request for add restaurant page received')
