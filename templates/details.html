@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Details{% endblock %}
+{% block title %}Restaurant List{% endblock %}
 {% block head %}
     {{ super() }}
     <style>
@@ -7,16 +7,64 @@
           min-height: 75rem;
           padding-top: 4.5rem;
       }
+
+      .score {
+        display: block;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .score-wrap {
+        display: inline-block;
+        position: relative;
+        height: 19px;
+      }
+      
+      .score .stars-active {
+        color: #EEBD01;
+        position: relative;
+        z-index: 10;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      
+      .score .stars-inactive {
+        color: grey;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-text-stroke: initial;
+        /* overflow: hidden; */
+      }
   </style>
 {% endblock %}
 {% block content %}
-  <h1>{{ restaurant.name }}</h1> 
-  <div class="row">
-      <div class="col-md-2 fw-bold">Description:</div>
-      <div class="col">{{ restaurant.description }}</div>                
-  </div>
-
-  
-    
-
+      <h1>Etapes</h1>
+      <div class="d-flex justify-content-end">
+              <a href="{{ url_for('create_restaurant') }}" class="btn btn-success px-4 gap-3">Add</a>
+      </div>
+      {% if True %}
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th class="text-end">Details</th>
+                      <th class="text-end">Delete</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for restaurant in restaurants %}
+                      <tr>
+                          <td>{{ restaurant.name }}</td>
+                          <td class="text-end"><a href="{{ url_for('details', id=restaurant.id) }}" class="btn btn-sm btn-primary">Details</a></td>
+                          <td class="text-end"><a href="{{ url_for('delete_record', id=restaurant.id) }}" class="btn btn-sm btn-primary">Delete</a></td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      {% else %}
+          <p>No steps exist.  Select Add new to add one.</p>
+      {% endif %}
 {% endblock %}
