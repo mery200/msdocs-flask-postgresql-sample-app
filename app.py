@@ -47,7 +47,7 @@ def details(id):
 
 @app.route('/delete/<int:id>', methods=['DELETE'])
 def delete_record(id):
-    record = Restaurant.query.where(Restaurant.id == id).first()
+    record = Restaurant.query.get_or_404(id)
     db.session.delete(record)
     db.session.commit()
     return render_template('index.html', restaurants=restaurants)
