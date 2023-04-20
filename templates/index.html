@@ -41,14 +41,13 @@
   </style>
 {% endblock %}
 {% block content %}
-      <h1>Restaurants</h1>
+      <h1>Tp Cloud Boukhars</h1>
 
       {% if True %}
           <table class="table">
               <thead>
                   <tr>
                       <th>Name</th>
-                      <th>Rating</th>
                       <th class="text-end">Details</th>
                   </tr>
               </thead>
@@ -56,7 +55,6 @@
                   {% for restaurant in restaurants %}
                       <tr>
                           <td>{{ restaurant.name }}</td>
-                          <td>{% include "star_rating.html" %}</td>
                           <td class="text-end"><a href="{{ url_for('details', id=restaurant.id) }}" class="btn btn-sm btn-primary">Details</a></td>
                       </tr>
                   {% endfor %}
