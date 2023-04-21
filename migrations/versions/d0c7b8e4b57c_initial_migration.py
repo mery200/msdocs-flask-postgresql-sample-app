@@ -27,7 +27,7 @@ def upgrade():
     )
     op.create_table('review',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('restaurant', sa.Integer(), nullable=False),
+    sa.Column('restaurant', sa.Integer(), nullable=True),
     sa.Column('user_name', sa.String(length=30), nullable=True),
     sa.Column('rating', sa.Integer(), nullable=True),
     sa.Column('review_text', sa.String(length=500), nullable=True),
