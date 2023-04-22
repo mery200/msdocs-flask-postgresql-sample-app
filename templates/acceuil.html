@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Acceuil{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+      body {
+          min-height: 75rem;
+          padding-top: 4.5rem;
+      }
+  </style>
+{% endblock %}
+{% block content %}  
+<div class="container mt-5">
+    <h2>Pourquoi choisir Microsoft Azure?</h2>
+	<br>
+      <ul>
+        <li>Microsoft Azure est une plateforme cloud leader sur le marché, utilisée par de nombreuses entreprises de toutes tailles pour héberger leurs applications.</li>
+        <li>Intégration avec les outils de développement de Microsoft tels que Visual Studio, GitHub et Azure DevOps.</li>
+	<li>Elle offre une grande flexibilité et une large gamme d'options de déploiement, adaptées à tous les besoins, de la petite application personnelle à la grande entreprise. Ainsi que disponibilité de nombreux services cloud, tels que l'hébergement web, les bases de données, l'analyse de données et l'IA.</li>
+        <li>Support pour de nombreuses langues de programmation, notamment Python, Java, Node.js et .NET. Avec Azure, nous pouvons facilement déployer des applications Flask, Django, Node.js et bien d'autres, sans avoir à nous soucier de la gestion de l'infrastructure.</li>
+        <li>Facilité de déploiement et de gestion des applications grâce à l'utilisation de conteneurs et de Kubernetes.</li>
+	<li>Azure offre également une grande fiabilité et une haute disponibilité, grâce à des mécanismes de redondance et de récupération d'urgence en cas de panne.</li>
+        <li>Enfin, si vous êtes un étudiant, vous pouvez bénéficier de programmes d'étudiants Microsoft pour accéder gratuitement à Azure et à de nombreux autres services Microsoft.</li>
+      </ul>
+
+<div class="container-fluid">
+  <h2>Pourquoi choisir Microsoft Azure pour le déploiement d'une application ?</h2>
+  <br>
+  	<ul>
+          <li>Grande disponibilité et performance : Azure est conçu pour fournir une grande disponibilité et performance de vos applications, avec un temps de disponibilité de 99,95 %.</li>
+          <li>Intégration facile : Azure offre une intégration facile avec d'autres services Microsoft, tels que Visual Studio et Office 365, pour vous permettre de travailler plus efficacement.</li>
+          <li>Large écosystème : Azure offre une large gamme d'outils et de services pour vous aider à développer, tester et déployer vos applications, y compris des outils d'analyse de données et d'apprentissage automatique.</li>
+          <li>Prix compétitif : Azure offre des prix compétitifs pour les étudiants, avec des crédits gratuits pour commencer et des tarifs réduits pour les projets académiques.</li>
+	  <li>Sécurité : Azure est l'une des plateformes de cloud les plus sûres, offrant une sécurité de pointe pour vos données et applications.</li>        
+	</ul>
+  <br>
+  <h3 id="services">Les services offerts</h3>
+  <p>Azure propose une variété de services pour les développeurs, y compris :</p>
+  <ul>
+    <li>Des machines virtuelles pour héberger votre application</li>
+    <li>Un service de base de données pour stocker vos données</li>
+    <li>Un service de stockage pour stocker les fichiers de votre application</li>
+    <li><b><em>un service "Web App + Database" pour déployer une application web et une base de données sur la même ressource. Cela signifie que nous pouvons créer une application web qui utilise une base de données pour stocker et récupérer des données, sans avoir à configurer et à gérer deux ressources séparées. Cette approche simplifie la gestion et la configuration de votre application et vous permet de déployer rapidement une application web avec une base de données en quelques clics. De plus, la ressource Web App + Database est hautement évolutive, ce qui signifie qu'elle peut être mise à l'échelle en fonction de nos besoins en matière de trafic et de stockage de données, offrant ainsi une solution flexible pour nos besoins d'application web et de base de données.</em></b></li>
+</ul>
+<p style="color: red;"><i>Le service "Web App + Database" est celui qui sera utilisé lors de la réalisation de ce projet. .</i></p>
+</div>
+    <p>Pour conclure, Microsoft Azure est une plateforme cloud puissante et flexible qui peut répondre à tous les besoins de déploiement d'un projets.</p>
+  </div>
+
+{% endblock %}
