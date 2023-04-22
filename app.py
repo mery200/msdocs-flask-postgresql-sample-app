@@ -40,6 +40,11 @@ def index():
     restaurants = Restaurant.query.all()
     return render_template('index.html', restaurants=restaurants)
 
+@app.route('/acc', methods=['GET'])
+def acceuil():
+    print('Request for acceuil page received')
+    return render_template('acceuil.html')
+
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
     restaurant = Restaurant.query.where(Restaurant.id == id).first()
