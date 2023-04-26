@@ -45,6 +45,11 @@ def acceuil():
     print('Request for acceuil page received')
     return render_template('acceuil.html')
 
+@app.route('/rapport', methods=['GET'])
+def acceuil():
+    print('Request for acceuil page received')
+    return render_template('rapport.html')
+
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
     restaurant = Restaurant.query.where(Restaurant.id == id).first()
