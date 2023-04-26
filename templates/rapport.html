@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Rapport{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+      body {
+          min-height: 75rem;
+          padding-top: 4.5rem;
+      }
+  </style>
+{% endblock %}
+{% block content %}
+<h1>Rapport</h1>
+<p>-Création d'un compte Azure: création d'un compte étudiant au niveau de la plateforme Microsoft azure vu qu'il est gratuit et pas de carte bleu à fournir
+<br>-Création d'une ressource Azure: création d'une ressource de type Web app + database qui est un solution sécurisées et flexible pour le développement, déploiement et la mise a l'échelle d'une application web et d'une base de données
+<br>-Configuration de ressource: resource Group ->création d'un nouveau groupe de ressource cloudBoukhars | Region ->France central | Name -> cloudboukhars | Runtime stack -> python3.9
+<br>-Configuration de base de données: Database -> PostgreSQL - Flexible Server. Le nom du serveur et le nom de la base de données sont également définis par défaut sur des valeurs appropriées. | Hosting plan -> basic | enfin, sélectionner vérification + création
+<br>-Vérifier les paramètres de connexion: Apres la création de notre ressource et en allant vers configuration on remarque que l'un des paramètre de notre application et automatiquement générer c'est un paramètre qui nous permettra d'accéder à notre base de données
+<br>-Génération d'une clé secrète: sur l'invite de commande d'Azure cli en exécute la commande suivante 'python -c 'import secrets; print(secrets.token_hex())' afin de générer une clé secrète qui sera utilise par la suite pour sécuriser notre application
+<br>-Ajout des paramètres d'application: Au niveau "Paramètres de l'application" de la page "Configuration", on ajoute un nouveau paramètre nommez "SECRET_KEY" qui a comme valeur la clé secrète déjà généré.
+<br>-Génération du code: A ce niveau on crée notre site web que nous voulons déployer en cloud. Dans notre cas on a utiliser une application flask au niveau de laquelle on implémente les différentes fonctionnalités voulu (CRUD) .
+<br>-Exécution du site en local: Pour tester notre site il faut établir la connexion avec notre base de données en cloud. Ceci par la création d'un fichier .env au niveau du quel on définit les paramètre de connexion tel que DBHOST, DBPASS, DBUSER, DBNAME, SECRET_KEY. Cependant , il faut d'abord déterminer la structure de notre base de données ceci par l'exécution de la commande 'flask db upgrade'. A ce niveau on peut lancer notre application par 'flask run'.
+<br>-Dépôt code en GitHub: En suivant les étapes précédentes, notre site est maintenant prêt pour un déploiement au niveau de notre ressource cloud déjà créer. Pour cela il faut qu'on dépose notre code dans un repository en GitHub qui est une plateforme populaire de gestion de code source pour le lier par la suite à notre déploiement. Or, pour pousser un code en GitHub on accède au dossier de notre projet dans une invite de commande, on exécute 'git init', puis 'git add .', par la suite on effectue un commit par 'git commit -m "init" ', maintenant il faut ajouter l'URL de notre repository par 'git remote add origin <URL_REPOSITORY>', enfin en fait push par 'git push -u origin main'
+<br>-Déploiement du site: En revenant à notre compte azure, et au niveau de la section 'Centre de déploiement' on configure nos paramètres vers le repository GitHub qui notre fournisseur de build et source; afin de déployer le code de notre application et quel soit accessible par cloud en mode Continuous Integration/Continuous Deployment; qui sont des flux de travail d'automatisation de processus de build, test et de déploiement d'application ce qui va faciliter le redéploiement en cas de modification du code. Pour réaliser ceci on suit ces étapes: dans Source, sélectionner GitHub. on se connecte à notre compte GitHub, puis dans Organisation, on sélectionne notre compte GitHub; et dans Dépôt, on sélectionne le repository de notre code et enfin pour Branche, on choisit main. Puis on enregistre nos modifies
+<br>-Génération du schéma pour notre base de données: Maintenant que notre code est déployé il ne reste que créer le schéma de la base de données afin qu'il puisse y connecter. Pour cela on select la section SSH de notre ressource cloud pour pouvoir effectuer une migration de base de données afin de créer le schéma de cette dernière en se basant sur le code fourni au niveau du dossier migration de notre application. Une fois sur la page du SSH on click sur 'Accéder' pour avoir la page d'un Secure Shell de notre app service qui va nous permettre de communiquer entre notre application et le serveur de base de données et exécuter des commandes pour mettre à jour le schéma de celle ci par la commande 'flask db upgrade'
+<br>-Accédez à l'application: En ayant suivi toutes les étapes précédemment déterminées, notre application est désormais connectée à notre base de données et déployée sur le cloud, prête à assurer les fonctionnalités définies. Elle est accessible via le domaine de notre application, qui est le suivant : https://cloudwebboukhars.azurewebsites.net/
+</p>
+  {% endblock %}
