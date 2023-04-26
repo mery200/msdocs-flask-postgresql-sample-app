@@ -46,7 +46,7 @@ def acceuil():
     return render_template('acceuil.html')
 
 @app.route('/rapport', methods=['GET']) 
-def acceuil():
+def rapport():
     print('Request for acceuil page received')
     return render_template('rapport.html')
 
